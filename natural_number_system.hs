@@ -24,7 +24,7 @@ predecessor (Sucessor x) = x
 --4º axioma: Dois números possuem o mesmo sucessor se e somente se eles forem iguais.
 igualdade::Natural->Natural ->Bool
 igualdade x y
-    |Sucessor x == Sucessor y = True
+    |Sucessor x Prelude.== Sucessor y = True
     |Sucessor x /= Sucessor y = False
 
 --5ºaxioma: O conjunto inicializado dos números que começam com zero e são obtidos via operaçao de sucessão são os únicos números naturais existentes. (Isto equivale a afirmação de que o elemento zero é unico, uma vez que a operação de sucessão é única pelo axioma 4.)
