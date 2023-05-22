@@ -1,4 +1,5 @@
 --VAMOS CRIAR UM PROGRAMA QUE IMPLEMENTA OS AXIOMAS DE PEANO E AS OPERAÇÕES DE SOMA E MULTIPLICAÇÃO DE NÚMEROS NATURAIS
+--O PROGRAMA IMPLEMENTAR APENAS A LÓGICA, DEFININDO UM SISTEMA DE ESCRITA DE NÚMEROS PODE-SE REALIZAR CÁLCULOS COM O SISTREMA DE NUMERAÇÃO ASSIM DEFINIDO
 
 --CRIANDO TIPOS
 
@@ -26,12 +27,13 @@ igualdade x y
     |Sucessor x == Sucessor y = True
     |Sucessor x /= Sucessor y = False
 
---5ºaxioma: O conjunto inicializado dos números que copmeçam com zero e são obtidos via operaçao de sucessão são os únicos números naturais existentes.
+--5ºaxioma: O conjunto inicializado dos números que começam com zero e são obtidos via operaçao de sucessão são os únicos números naturais existentes.
 
 --SOMA
 --Para definir a soma usamos a relação recursiva
 soma::Natural->Natural->Natural
 soma x Zero = x
+soma x (Sucessor Zero) = Sucessor x --Se x é natural x+1= sucessor(x)
 soma x (Sucessor y) = Sucessor(soma x y)
 
 --MULTIPLICAÇÃO
