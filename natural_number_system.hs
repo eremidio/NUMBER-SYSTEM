@@ -4,7 +4,7 @@
 --CRIANDO TIPOS
 
 data Natural = Zero |Sucessor Natural --O construtor de um número natural é definido recursivamente via operação de sucessão
-    deriving(Show, Ord, Eq)
+    deriving(Show, Ord)
 
 --AXIOMAS
 --1ª axioma: Zero é um número natural
@@ -27,13 +27,22 @@ igualdade x y
     |Sucessor x == Sucessor y = True
     |Sucessor x /= Sucessor y = False
 
---5ºaxioma: O conjunto inicializado dos números que começam com zero e são obtidos via operaçao de sucessão são os únicos números naturais existentes.
+--5ºaxioma: O conjunto inicializado dos números que começam com zero e são obtidos via operaçao de sucessão são os únicos números naturais existentes. (Isto equivale a afirmação de que o elemento zero é unico, uma vez que a operação de sucessão é única pelo axioma 4.)
+instance Eq Natural where
+    Zero == Zero = True
+    Zero == _  = False
+    _ == Zero = False
+
+
+
 
 --SOMA
 --Para definir a soma usamos a relação recursiva
 soma::Natural->Natural->Natural
 soma x Zero = x
+soma Zero x = x
 soma x (Sucessor Zero) = Sucessor x --Se x é natural x+1= sucessor(x)
+soma (Sucessor Zero) x = Sucessor x
 soma x (Sucessor y) = Sucessor(soma x y)
 
 --MULTIPLICAÇÃO
@@ -51,4 +60,3 @@ main = do
     putStrLn("Zero: "++show zero)
     putStrLn("Sucessor de zero: "++show (sucessor zero))
     putStrLn("Predecessor de zero: "++show (predecessor zero))
-  
