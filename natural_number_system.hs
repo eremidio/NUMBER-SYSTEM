@@ -1,5 +1,5 @@
 --VAMOS CRIAR UM PROGRAMA QUE IMPLEMENTA OS AXIOMAS DE PEANO E AS OPERAÇÕES DE SOMA E MULTIPLICAÇÃO DE NÚMEROS NATURAIS
---O PROGRAMA IMPLEMENTAR APENAS A LÓGICA, DEFININDO UM SISTEMA DE ESCRITA DE NÚMEROS PODE-SE REALIZAR CÁLCULOS COM O SISTEMA DE NUMERAÇÃO ASSIM DEFINIDO
+--O PRESENTE PROGRAMA IMPLEMENTA APENAS A LÓGICA, PORÉM DEFININDO-SE UM SISTEMA DE ESCRITA DE NÚMEROS PODE-SE REALIZAR CÁLCULOS COM O SISTEMA DE NUMERAÇÃO ASSIM DEFINIDO
 
 --CRIANDO TIPOS
 
@@ -21,13 +21,13 @@ predecessor::Natural -> Natural
 predecessor Zero = error "Não existe o predecessor de zero no conjunto dos números naturais\n"
 predecessor (Sucessor x) = x
 
---4º axioma: Dois números possuem o mesmo sucessor se e somente se eles forem iguais.
+--4º axioma: Dois números possuem o mesmo sucessor se e somente se eles forem iguais
 igualdade::Natural->Natural ->Bool
 igualdade x y
     |Sucessor x Prelude.== Sucessor y = True
     |Sucessor x /= Sucessor y = False
 
---5ºaxioma: O conjunto inicializado dos números que começam com zero e são obtidos via operaçao de sucessão são os únicos números naturais existentes. (Isto equivale a afirmação de que o elemento zero é unico, uma vez que a operação de sucessão é única pelo axioma 4.)
+--5ºaxioma: O conjunto dos números que começam com zero e são obtidos via operação de sucessão são os únicos números naturais existentes. (Isto equivale a afirmação de que o elemento zero é unico, uma vez que a operação de sucessão é única pelo axioma 4.)
 instance Eq Natural where
     Zero == Zero = True
     Zero == _  = False
@@ -37,7 +37,7 @@ instance Eq Natural where
 
 
 --SOMA
---Para definir a soma usamos a relação recursiva
+--Para definir a soma usamos uma relação recursiva
 soma::Natural->Natural->Natural
 soma x Zero = x
 soma Zero x = x
@@ -46,7 +46,7 @@ soma (Sucessor Zero) x = Sucessor x
 soma x (Sucessor y) = Sucessor(soma x y)
 
 --MULTIPLICAÇÃO
---Usamos a operação de soma para definir a operação de soma
+--Usamos a operação de soma para definir a operação de multiplicação recursivamente
 multiplicacao::Natural ->Natural ->Natural
 multiplicacao _ Zero = Zero
 multiplicacao Zero _ = Zero
