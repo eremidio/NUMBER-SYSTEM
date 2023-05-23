@@ -1,8 +1,6 @@
---VAMOS IMPLEBNTAR A CLASSE DOS NÚMEROS INTEIROS EM HASKELL
+--VAMOS IMPLEMENTAR A CLASSE DOS NÚMEROS INTEIROS EM HASKELL
 {-
-ADOTAMOS COMO PONTO DE PARTIDA QUE A OPERAÇÃO DE ADIÇÃO E MULTIPLICAÇÃO SOBRE O CONJUNTO DOS NATURAIS É BEM DEFINIDO. BEM COMO
-O CONJUNTO DOS NATURAIS É BEM DEFINIDO. VAMOS DEFINIR O CONJUNTO DOS INTEIROS COMO UM PAR ORDENADO (a,b) TAL QUE DOIS NÚMEROS (a,b) E (c, d) SÃO IGUAIS SE E SOMENTE SE a+c=b+d. CADA CLASSE DE EQUIVALÊNCIA DEFINE UM NÚMERO INTEIRO. SE a>b, ENTÃO EXISTE
-UM NATURAL c, TAL QUE a=b+c, USAMOS O SÍMBOLO c PARA REPRESENTAR O INTEIRO (a, b) E (b, a) É REPRESENTADO PELO SÍMBOLO -c. O ZERO (a, b) CORRESPONDE AO CASO a=b, NATURALMENTE TEMOS QUE c+(-c)=0. A OPERAÇÃO DE SUBTRAÇÃO É DEFINIDA COMO a-b=a+(-b).
+ADOTAMOS COMO PONTO DE PARTIDA QUE AS OPERAÇÕES DE ADIÇÃO E MULTIPLICAÇÃO SOBRE O CONJUNTO DOS NATURAIS SÃO BEM DEFINIDAS. VAMOS DEFINIR O CONJUNTO DOS INTEIROS COMO UM PAR ORDENADO (a,b) TAL QUE DOIS NÚMEROS (a,b) E (c, d) SÃO IGUAIS SE E SOMENTE SE a+d=b+c. CADA CLASSE DE EQUIVALÊNCIA DEFINE UM NÚMERO INTEIRO. SE a>b, ENTÃO EXISTE UM NATURAL c, TAL QUE a=b+c, USAMOS O SÍMBOLO c PARA REPRESENTAR O INTEIRO (a, b) E (b, a) É REPRESENTADO PELO SÍMBOLO -c. O ZERO (a, b) CORRESPONDE AO CASO a=b, NATURALMENTE TEMOS QUE c+(-c)=0. A OPERAÇÃO DE SUBTRAÇÃO É DEFINIDA COMO a-b=a+(-b).
 -}
 
 --TIPOS
@@ -12,7 +10,7 @@ data Inteiro = Inteiro (Int, Int)
 
 --FUNÇÕES
 
---Função que representa um número em notação algébrica (z deve ser inicializado em 0 ao se invocar esta função)
+--Função que representa um número em notação decimal (z deve ser inicializado em 0 ao se invocar esta função)
 repr::Inteiro ->Int->Int
 repr (Inteiro (x, y)) z
     |x==y = z
@@ -56,4 +54,3 @@ main = do
     putStrLn("(3, 7) é representado como: "++ show(repr (Inteiro(3,7)) 0))
     putStrLn("(7, 7) é representado como: "++ show(repr (Inteiro(7,7)) 0))
     putStrLn("(3, 3) é representado como: "++ show(repr (Inteiro(3,3)) 0))
-
