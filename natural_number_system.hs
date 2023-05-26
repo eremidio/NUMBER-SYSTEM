@@ -54,9 +54,36 @@ multiplicacao x (Sucessor Zero) = x -- Elemento neutro da multiplicação
 multiplicacao (Sucessor Zero) x = x -- Elemento neutro da multiplicação
 multiplicacao x (Sucessor y) = soma x (multiplicacao x y) 
 
+--SISTEMA DE ESCRITA DOS NÚMEROS
+--Função recursiva para escrever os algarismos usados para escrever o sistema de números decimais
+--Definindo essa função recursivamente todos os números naturais podem ser escritos
+write_digits :: Natural -> IO ()
+write_digits Zero = putStrLn "0"
+write_digits (Sucessor Zero) = putStrLn "1"
+write_digits (Sucessor (Sucessor Zero)) = putStrLn "2"
+write_digits (Sucessor (Sucessor (Sucessor Zero))) = putStrLn "3"
+write_digits (Sucessor (Sucessor (Sucessor (Sucessor Zero)))) = putStrLn "4"
+write_digits (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor Zero))))) = putStrLn "5"
+write_digits (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor Zero)))))) = putStrLn "6"
+write_digits (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor Zero))))))) = putStrLn "7"
+write_digits (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor Zero)))))))) = putStrLn "8"
+write_digits (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor Zero))))))))) = putStrLn "9"
+
+
 --FUNÇÃO PRINCIPAL
 main::IO()
 main = do
+    putStrLn("Digitos usados para representar os números naturais:")
+    write_digits Zero
+    write_digits (Sucessor Zero) 
+    write_digits (Sucessor (Sucessor Zero)) 
+    write_digits (Sucessor (Sucessor (Sucessor Zero)))
+    write_digits (Sucessor (Sucessor (Sucessor (Sucessor Zero)))) 
+    write_digits (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor Zero)))))
+    write_digits (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor Zero)))))) 
+    write_digits (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor Zero))))))) 
+    write_digits (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor Zero))))))))
+    write_digits (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor Zero)))))))))
     putStrLn("Zero: "++show zero)
     putStrLn("Sucessor de zero: "++show (sucessor zero))
     putStrLn("Predecessor de zero: "++show (predecessor zero))
