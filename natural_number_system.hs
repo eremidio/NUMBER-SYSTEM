@@ -18,7 +18,7 @@ sucessor x  = Sucessor x
 
 --3ºaxioma: Zero não é sucessor de nenhum número natural  
 predecessor::Natural -> Natural
-predecessor Zero = error "Não existe o predecessor de zero no conjunto dos números naturais\n"
+predecessor Zero = error "Não existe o predecessor de zero no conjunto dos números naturais.\n"
 predecessor (Sucessor x) = x
 
 --4º axioma: Dois números possuem o mesmo sucessor se e somente se eles forem iguais
@@ -84,6 +84,15 @@ main = do
     write_digits (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor Zero))))))) 
     write_digits (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor Zero))))))))
     write_digits (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor (Sucessor Zero)))))))))
+
+    putStrLn("Operações matemáticas nesse sistema:")
+    putStrLn("1+1=2")
+    putStrLn(show(soma (Sucessor Zero) (Sucessor Zero) ))
+    putStrLn("2 x 2 = 4")
+    putStrLn(show(multiplicacao (Sucessor (Sucessor Zero))  (Sucessor (Sucessor Zero))  ))
+    
+    putStrLn("Operação de sucessão e predecessão:")   
     putStrLn("Zero: "++show zero)
     putStrLn("Sucessor de zero: "++show (sucessor zero))
+    putStrLn("Predecessor do sucessor de zero: "++show (predecessor (Sucessor zero)))
     putStrLn("Predecessor de zero: "++show (predecessor zero))
