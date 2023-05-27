@@ -36,13 +36,27 @@ soma (Racional(a, b)) (Racional(c, d)) = Racional (a*d+b*c, b*d)
 subtracao::Racional->Racional->Racional
 subtracao (Racional(a, b)) (Racional(c, d)) = Racional (a*d-b*c, b*d)
  
--- Representação decimal de um racional
+--Função que calcula a parte inteira da divisão de dois números inteiros positivos (usar k = 0 ao invocar esta função)
+div_int::Integer->Integer->Integer->Integer
+div_int n m k
+    |n<m = k
+    |n>=m = div_int (n-m) m (k+1)
+
+
+--Função que calcula o resto da divisão de dois números inteiros positivos
+mod_int::Integer->Integer->Integer
+mod_int n m 
+    |n<m = n
+    |n>=m = mod_int (n-m) m 
+
+
+-- Representação decimal de um racional (a menos de um sinal multiplicativo)
 decimal :: Racional -> Integer -> Integer -> IO ()
 decimal (Racional (a, b)) z n
     | z == n = putStr "..."
     | z < n = do
-        let parte_inteira = div a b
-            parte_decimal = mod a b
+        let parte_inteira = div_int a b 0
+            parte_decimal = mod_int a b
         putStr (show parte_inteira ++",")
         decimal (Racional (parte_decimal*10, b)) (z+1) n
 
