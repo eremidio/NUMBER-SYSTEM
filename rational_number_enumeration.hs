@@ -60,13 +60,9 @@ main = do
   ----Procedimentos
   --Gerando uma lista de Racionais
   let rationals = generate_rational_list n
-  
+  let sorted_rationals = sort rationals
     
   --Enumeracão da lista de Racionais usando a função de pareamento de Cantor
   putStrLn("Lista de números racionais enumerada: ")
-  let enumerate_rationals = enumerate_rational_list rationals
+  let enumerate_rationals = enumerate_rational_list sorted_rationals
   print enumerate_rationals
-
-  
-
-
